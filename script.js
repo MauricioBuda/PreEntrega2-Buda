@@ -24,12 +24,15 @@ function agregar(){
     let opcion5=true;
     let opcion6=true;
     let controlDeID=[];
+    let controlDePrecio=[];
     do {
         if (flag) {
+
             // Do while para que no ingresen un ID invalido
+            let id;
             do {
                 id = Number(prompt("Ingrese el ID del producto (no se pueden repetir)"));
-                if(isNaN(id)){
+                if(!id || isNaN(id)){
                     alert("Ingresó un ID inválido, intente nuevamente!")
                     opcion4=true;
                 }else{
@@ -40,17 +43,20 @@ function agregar(){
 
             let prod = prompt ("Ingrese el nombre del producto").toUpperCase();
             let marca = prompt("Ingrese la marca del producto").toUpperCase();
+
             // Do while para que no ingresen un precio invalido
+            let precio;
             do {
-                id = Number(prompt("Ingrese el precio del producto)"));
-                if(isNaN(id)){
+                precio = Number(prompt("Ingrese el precio del producto)"));
+                if(!precio || isNaN(precio)){
                     alert("Ingresó un precio inválido, intente nuevamente!")
                     opcion5=true;
                 }else{
-                    controlDeID.push(id);
+                    controlDePrecio.push(precio);
                     opcion5=false;
                 }
             } while (opcion5);
+
             productos.push(new Stock(id, prod, marca, precio));
             console.log("Producto agregado");
             flag=false;
@@ -61,7 +67,7 @@ function agregar(){
                     // Do while para que no ingresen un ID invalido ni repetido
                     do {
                         id = Number(prompt("Ingrese el siguiente ID del producto (no se pueden repetir)"));
-                        if(controlDeID.includes(id) || isNaN(id)){
+                        if(controlDeID.includes(id) || isNaN(id) || !id){
                             alert("Ingresó un ID existente o inválido, intente nuevamente!")
                             opcion3=true;
                         }else{
@@ -69,16 +75,19 @@ function agregar(){
                             opcion3=false;
                         }
                     } while (opcion3);
+
                 let prod = prompt ("Ingrese el nombre del producto").toUpperCase();
                 let marca = prompt("Ingrese la marca del producto").toUpperCase();
+
                 // Do while para que no ingresen un precio invalido
+                let precio;
                 do {
-                    id = Number(prompt("Ingrese el precio del producto)"));
-                    if(isNaN(id)){
+                    precio = Number(prompt("Ingrese el precio del producto"));
+                    if(isNaN(precio) || !precio){
                         alert("Ingresó un precio inválido, intente nuevamente!")
                         opcion6=true;
                     }else{
-                        controlDeID.push(id);
+                        controlDePrecio.push(precio);
                         opcion6=false;
                     }
                 } while (opcion6);
@@ -280,17 +289,16 @@ function eliminar(){
                         "- Precio del producto: $" + element.precio + "\n\n");
                     });
     let barridoDeId = [];
-    const idEliminar = prompt("Elija de la lista mostrada por consola, el ID del elemento a eliminar");
+    const idEliminar = Number(prompt("Elija de la lista mostrada por consola, el ID del elemento a eliminar"));
     barridoDeId =  productos.map((element)=>element.id)
-    console.log(barridoDeId)
-    if(barridoDeId.includes(idEliminar)){
-        console.log("FOOOOR")
-        for (const i of productos.id) {
-            console.log(productos.id)
-            console.log(i)
-        }
-    }else{
 
+    if(barridoDeId.includes(idEliminar)){
+        let indice = productos.map(producto => producto.id).indexOf(idEliminar)
+        productos.splice(indice, 1);
+        console.log("- Ha eliminado el producto de ID " + idEliminar + " exitosamente \n\n");
+        alert("- Ha eliminado el producto de ID " + idEliminar + " exitosamente");
+    }else{
+        alert("El ID que ingresó no corresponde a ningun elemento de la lista.")
     }
 }
 }
