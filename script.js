@@ -17,105 +17,110 @@ class Stock{
 
 //FUNCION PARA AGREGAR PRODUCTOS
 function agregar(){
-    let desicion = Number(prompt("Para ingresar un array de objetos de ejemplo (con elementos ya pre-cargados) ponga 1. Para ingresarlos manualmente, ponga CANCELAR:"))
-    if (desicion == 1) {
-        for (const iterator of arrayEjemplo) {
-        productos.push(iterator)
-        }
-        console.log("Se ha cargado la lista aleatoria de elementos\n\n")
-
-        console.log("Los productos que cargó son los siguientes: \n\n");
-    productos.forEach(element => {
-        console.log(
-        "- ID del producto: " + element.id + "\n" + 
-        "- Nombre del producto: " + element.prod + "\n" + 
-        "- Marca del producto: " + element.marca + "\n" + 
-        "- Precio del producto: $" + element.precio + "\n\n");
-    });
-    }else{
-    let flag=true;
-    let opcion2=true;
-    let opcion3=true;
-    let opcion4=true;
-    let opcion5=true;
-    let opcion6=true;
-    let controlDeID=[];
-    let controlDePrecio=[];
-    do {
-        if (flag) {
-
-            // Do while para que no ingresen un ID invalido
-            let id;
-            do {
-                id = Number(prompt("Ingrese el ID del producto (no se pueden repetir)"));
-                if(!id || isNaN(id)){
-                    alert("Ingresó un ID inválido, intente nuevamente!")
-                    opcion4=true;
-                }else{
-                    controlDeID.push(id);
-                    opcion4=false;
-                }
-            } while (opcion4);
-
-            let prod = prompt ("Ingrese el nombre del producto").toUpperCase();
-            let marca = prompt("Ingrese la marca del producto").toUpperCase();
-
-            // Do while para que no ingresen un precio invalido
-            let precio;
-            do {
-                precio = Number(prompt("Ingrese el precio del producto"));
-                if(!precio || isNaN(precio)){
-                    alert("Ingresó un precio inválido, intente nuevamente!")
-                    opcion5=true;
-                }else{
-                    controlDePrecio.push(precio);
-                    opcion5=false;
-                }
-            } while (opcion5);
-
-            productos.push(new Stock(id, prod, marca, precio));
-            console.log("Producto agregado");
-            flag=false;
-        } else {
-            let opcion = confirm("Desea agregar otro producto?");
-            if (opcion) {
+    let desicion = Number(prompt("Para ingresar un array de objetos de ejemplo (con elementos ya pre-cargados) ponga 1. Para ingresarlos manualmente, ponga 2:"))
+    if (noCargarListaDosVeces) {
+        if (desicion == 1) {
+            for (const iterator of arrayEjemplo) {
+            productos.push(iterator)
+            }
+            console.log("Se ha cargado la lista aleatoria de elementos\n\n")
+    
+            console.log("Los productos que cargó son los siguientes: \n\n");
+        productos.forEach(element => {
+            console.log(
+            "- ID del producto: " + element.id + "\n" + 
+            "- Nombre del producto: " + element.prod + "\n" + 
+            "- Marca del producto: " + element.marca + "\n" + 
+            "- Precio del producto: $" + element.precio + "\n\n");
+        });
+        noCargarListaDosVeces=false;
+    }else if (desicion==2){
+        let flag=true;
+        let opcion2=true;
+        let opcion3=true;
+        let opcion4=true;
+        let opcion5=true;
+        let opcion6=true;
+        let controlDeID=[];
+        let controlDePrecio=[];
+        do {
+            if (flag) {
+    
+                // Do while para que no ingresen un ID invalido
                 let id;
-                    // Do while para que no ingresen un ID invalido ni repetido
-                    do {
-                        id = Number(prompt("Ingrese el siguiente ID del producto (no se pueden repetir)"));
-                        if(controlDeID.includes(id) || isNaN(id) || !id){
-                            alert("Ingresó un ID existente o inválido, intente nuevamente!")
-                            opcion3=true;
-                        }else{
-                            controlDeID.push(id);
-                            opcion3=false;
-                        }
-                    } while (opcion3);
-
+                do {
+                    id = Number(prompt("Ingrese el ID del producto (no se pueden repetir)"));
+                    if(!id || isNaN(id)){
+                        alert("Ingresó un ID inválido, intente nuevamente!")
+                        opcion4=true;
+                    }else{
+                        controlDeID.push(id);
+                        opcion4=false;
+                    }
+                } while (opcion4);
+    
                 let prod = prompt ("Ingrese el nombre del producto").toUpperCase();
                 let marca = prompt("Ingrese la marca del producto").toUpperCase();
-
+    
                 // Do while para que no ingresen un precio invalido
                 let precio;
                 do {
                     precio = Number(prompt("Ingrese el precio del producto"));
-                    if(isNaN(precio) || !precio){
+                    if(!precio || isNaN(precio)){
                         alert("Ingresó un precio inválido, intente nuevamente!")
-                        opcion6=true;
+                        opcion5=true;
                     }else{
                         controlDePrecio.push(precio);
-                        opcion6=false;
+                        opcion5=false;
                     }
-                } while (opcion6);
-                productos.push(new Stock(id, prod, marca, precio))
-                console.log("Producto agregado")
-        } else{
-            opcion2=false;
-            break;
-        }
-        }
-    } while (opcion2);
-}
+                } while (opcion5);
+    
+                productos.push(new Stock(id, prod, marca, precio));
+                console.log("Producto agregado");
+                flag=false;
+            } else {
+                let opcion = confirm("Desea agregar otro producto?");
+                if (opcion) {
+                    let id;
+                        // Do while para que no ingresen un ID invalido ni repetido
+                        do {
+                            id = Number(prompt("Ingrese el siguiente ID del producto (no se pueden repetir)"));
+                            if(controlDeID.includes(id) || isNaN(id) || !id){
+                                alert("Ingresó un ID existente o inválido, intente nuevamente!")
+                                opcion3=true;
+                            }else{
+                                controlDeID.push(id);
+                                opcion3=false;
+                            }
+                        } while (opcion3);
+    
+                    let prod = prompt ("Ingrese el nombre del producto").toUpperCase();
+                    let marca = prompt("Ingrese la marca del producto").toUpperCase();
+    
+                    // Do while para que no ingresen un precio invalido
+                    let precio;
+                    do {
+                        precio = Number(prompt("Ingrese el precio del producto"));
+                        if(isNaN(precio) || !precio){
+                            alert("Ingresó un precio inválido, intente nuevamente!")
+                            opcion6=true;
+                        }else{
+                            controlDePrecio.push(precio);
+                            opcion6=false;
+                        }
+                    } while (opcion6);
+                    productos.push(new Stock(id, prod, marca, precio))
+                    console.log("Producto agregado")
+            } else{
+                opcion2=false;
+                break;
+            }
+            }
+        } while (opcion2);
+    }
+    }else if (noCargarListaDosVeces==false){
+        alert("No puede ingresar dos veces la lista de prueba, ya que se repetirian los ID. Si quiere agregar mas elementos, seleccione la forma manual por favor.")
+    }
 }
 
 
@@ -353,6 +358,7 @@ const arrayEjemplo = [
 
 // EMPIEZA CODIGO
 
+let noCargarListaDosVeces = true
 
 //DECLARO ARRAY 
 let productos = [];
