@@ -18,8 +18,7 @@ class Stock{
 //FUNCION PARA AGREGAR PRODUCTOS
 function agregar(){
     let desicion = Number(prompt("Para ingresar un array de objetos de ejemplo (con elementos ya pre-cargados) ponga 1. Para ingresarlos manualmente, ponga 2:"))
-    if (noCargarListaDosVeces) {
-        if (desicion == 1) {
+        if (desicion == 1 && noCargarListaDosVeces) {
             for (const iterator of arrayEjemplo) {
             productos.push(iterator)
             }
@@ -34,6 +33,8 @@ function agregar(){
         });
         alert("Se ha cargado la lista aleatoria de elementos")
         noCargarListaDosVeces=false;
+    }else if (desicion == 1 && noCargarListaDosVeces==false){
+        alert("No puede ingresar dos veces la lista de prueba, ya que se repetirian los ID. Si quiere agregar mas elementos, seleccione la forma manual por favor.")
     }else if (desicion==2){
         let flag=true;
         let opcion2=true;
@@ -118,9 +119,7 @@ function agregar(){
             }
         } while (opcion2);
     }
-    }else if (noCargarListaDosVeces==false){
-        alert("No puede ingresar dos veces la lista de prueba, ya que se repetirian los ID. Si quiere agregar mas elementos, seleccione la forma manual por favor.")
-    }
+    
 }
 
 
