@@ -334,11 +334,11 @@ function limpiar() {
 const arrayEjemplo = [
     {id: 5, prod: "Arroz", marca: "Sancor",  precio: 500},
     {id: 8, prod:"Harina", marca: "Ilolay", precio: 300},
-    {id: 12, prod:"Papa", marca: "Serenisima", precio: 800},
-    {id: 16, prod:"Harina", marca: "Adidas", precio: 1000},
-    {id: 1, prod:"Harina", marca: "Pringles", precio: 20000},
-    {id: 25, prod:"Harina", marca: "Morena", precio: 650},
-    {id: 4, prod:"Harina", marca: "Pepito", precio: 980},
+    {id: 12, prod:"Papa", marca: "Pringles", precio: 800},
+    {id: 16, prod:"Pelota", marca: "Adidas", precio: 1000},
+    {id: 1, prod:"Cerveza", marca: "Andes", precio: 20000},
+    {id: 25, prod:"Agua", marca: "Villavicencio", precio: 650},
+    {id: 4, prod:"Papel", marca: "Pepito", precio: 980},
     ]
 
 
