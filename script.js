@@ -22,7 +22,16 @@ function agregar(){
         for (const iterator of arrayEjemplo) {
         productos.push(iterator)
         }
-        console.log("Se ha cargado la lista aleatoria de elementos")
+        console.log("Se ha cargado la lista aleatoria de elementos\n\n")
+
+        console.log("Los productos que cargó son los siguientes: \n\n");
+    productos.forEach(element => {
+        console.log(
+        "- ID del producto: " + element.id + "\n" + 
+        "- Nombre del producto: " + element.prod + "\n" + 
+        "- Marca del producto: " + element.marca + "\n" + 
+        "- Precio del producto: $" + element.precio + "\n\n");
+    });
     }else{
     let flag=true;
     let opcion2=true;
