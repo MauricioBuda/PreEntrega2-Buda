@@ -5,10 +5,7 @@ class Stock{
         this.prod = prod;
         this.marca = marca;
         this.precio = precio;
-    }
-    imprimeMostrar(){
-        console.log("Mostrar")
-    }
+}
 }
 
 
