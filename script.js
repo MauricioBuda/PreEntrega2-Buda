@@ -348,6 +348,9 @@ const arrayEjemplo = [
 //DECLARO ARRAY 
 let productos = [];
 
+//AVISO DE QUE EJECUTEN EL CODIGO CON LA CONSOLA ABIERTA
+alert("Antes de ejecutar el programa, abrir la consola del inspector!")
+
 //MENU PARA QUE EL USUARIO ELIJA QUE HACER
 do {
     menu = Number(prompt(
