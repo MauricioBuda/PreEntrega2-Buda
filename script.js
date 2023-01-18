@@ -17,6 +17,13 @@ class Stock{
 
 //FUNCION PARA AGREGAR PRODUCTOS
 function agregar(){
+    let desicion = Number(prompt("Para ingresar un array de objetos de ejemplo (con elementos ya pre-cargados) ponga 1. Para ingresarlos manualmente, ponga CANCELAR:"))
+    if (desicion == 1) {
+        for (const iterator of arrayEjemplo) {
+        productos.push(iterator)
+        }
+        console.log("Se ha cargado la lista aleatoria de elementos")
+    }else{
     let flag=true;
     let opcion2=true;
     let opcion3=true;
@@ -47,7 +54,7 @@ function agregar(){
             // Do while para que no ingresen un precio invalido
             let precio;
             do {
-                precio = Number(prompt("Ingrese el precio del producto)"));
+                precio = Number(prompt("Ingrese el precio del producto"));
                 if(!precio || isNaN(precio)){
                     alert("Ingresó un precio inválido, intente nuevamente!")
                     opcion5=true;
@@ -99,6 +106,7 @@ function agregar(){
         }
         }
     } while (opcion2);
+}
 }
 
 
@@ -322,7 +330,16 @@ function limpiar() {
     }
 }
 
-
+//ARRAY DE OBJETOS PARA USAR DE EJEMPLO
+const arrayEjemplo = [
+    {id: 5, prod: "Arroz", marca: "Sancor",  precio: 500},
+    {id: 8, prod:"Harina", marca: "Ilolay", precio: 300},
+    {id: 12, prod:"Papa", marca: "Serenisima", precio: 800},
+    {id: 16, prod:"Harina", marca: "Adidas", precio: 1000},
+    {id: 1, prod:"Harina", marca: "Pringles", precio: 20000},
+    {id: 25, prod:"Harina", marca: "Morena", precio: 650},
+    {id: 4, prod:"Harina", marca: "Pepito", precio: 980},
+    ]
 
 
 // EMPIEZA CODIGO
