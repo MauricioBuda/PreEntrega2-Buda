@@ -336,6 +336,7 @@ function limpiar() {
     if (opcion) {
         productos.splice(0,productos.length)
         console.clear();
+        noCargarListaDosVeces=true;
         alert("\n\n Borró todo, debe volver a empezar :) \n\n");
     } else {
         alert("\n\n No se borró nada, puede seguir ingresando :) \n\n");
