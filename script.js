@@ -24,7 +24,7 @@ function agregar(){
             productos.push(iterator)
             }
             console.log("Se ha cargado la lista aleatoria de elementos\n\n")
-    
+            alert("Se ha cargado la lista aleatoria de elementos")
             console.log("Los productos que cargó son los siguientes: \n\n");
         productos.forEach(element => {
             console.log(
