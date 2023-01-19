@@ -361,7 +361,7 @@ let noCargarListaDosVeces = true
 let productos = [];
 
 //AVISO DE QUE EJECUTEN EL CODIGO CON LA CONSOLA ABIERTA
-alert("Antes de ejecutar el programa, abrir la consola del inspector en el navegador de la PC!")
+alert("Primero abrir la consola del inspector en el navegador de la PC, y luego actualizar pagina para ejecutar el programa!")
 
 //MENU PARA QUE EL USUARIO ELIJA QUE HACER
 do {
